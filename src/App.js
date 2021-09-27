@@ -10,7 +10,8 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import TableForm from './Components/TableForm';
+// import TableForm from './Components/TableForm';
+import BasicInfo from './Containers/BasicInfo';
 
 const theme = createTheme();
 
@@ -34,7 +35,7 @@ function App() {
         </Toolbar>
       </AppBar>
       <Container component="main" maxWidth="md" sx={{ mb: 2 }} >
-          <TableForm />
+          <BasicInfo />
       </Container>
     </ThemeProvider>
   );
