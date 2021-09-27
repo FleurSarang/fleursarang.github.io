@@ -6,29 +6,32 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 
 
-const TableForm = (props) => (
-    <React.Fragment>
-        <Grid container flexdirection="column" justify="center" justifyContent="center" alignItems="ceneter" spacing={2}>
-            <Grid item xs={2} sm={2} lg={2}>
-                <Typography color="primary" align="center" variant="h6" 
-                    sx={{ mt: 2.3 }} >
-                    실 정보
-                </Typography>
+const TableForm = (props) => {
+    const { label = "none", textLabel="none" } = props;
+    return (
+        <React.Fragment>
+            <Grid container flexdirection="column" justify="center" justifyContent="center" alignItems="ceneter" spacing={2}>
+                <Grid item xs={2} sm={2} lg={2}>
+                    <Typography color="primary" align="center" variant="h6" 
+                        sx={{ mt: 2.3 }} >
+                        {label}
+                    </Typography>
+                </Grid>
+                <Grid item xs={8} sm={8}>
+                <TextField
+                    required
+                    id="yarnInfo"
+                    name="yarnInfo"
+                    label={textLabel}
+                    fullWidth
+                    autoComplete="no info"
+                    variant="standard"
+                />
+                </Grid>
             </Grid>
-            <Grid item xs={8} sm={8}>
-            <TextField
-                required
-                id="yarnInfo"
-                name="yarnInfo"
-                label="실 정보를 입력하세요."
-                fullWidth
-                autoComplete="no info"
-                variant="standard"
-            />
-            </Grid>
-        </Grid>
-    </React.Fragment>
-);
+        </React.Fragment>
+    );
+    }
 
 // const TableForm = (props) => (
 //     <React.Fragment>
