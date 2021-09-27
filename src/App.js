@@ -1,33 +1,42 @@
+
+import React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
+import TableForm from './Components/TableForm';
 
-// Create a Title component that'll render an <h1> tag with some styles
-const Title = styled(Typography)(
-  ({ color, size, align }) => `
-    font-size: ${ size ? size : "1.5em" };
-    text-align: ${ align ? align : "center" };
-    color: ${ color ? color : "palevioletred" };
-  `
-);
-
-// Create a Wrapper component that'll render a <section> tag with some styles
-const Wrapper = styled(Box)(
-  ({ primary }) => `
-  padding: 4em;
-  background: ${primary ? "papayawhip" : "skyblue"};
-`,
-);
+const theme = createTheme();
 
 function App() {
   return (
-    <div className="App">
-      <Wrapper primary>
-        <Title>
-          Hello World!
-        </Title>
-      </Wrapper>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AppBar
+        position="absolute"
+        color="default"
+        elevation={0}
+        sx={{
+          position: 'relative',
+          borderBottom: (t) => `1px solid ${t.palette.divider}`,
+        }}
+      >
+        <Toolbar>
+          <Typography variant="h6" color="inherit" noWrap>
+            스티치 계산기
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Container component="main" maxWidth="md" sx={{ mb: 2 }} >
+          <TableForm />
+      </Container>
+    </ThemeProvider>
   );
 }
 
