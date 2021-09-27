@@ -1,15 +1,38 @@
 import React from 'react';
-import Paper from '@mui/material/Paper';
 import TableForm from '../Components/TableForm';
+import InfoTableContainer from './InfoTableContainer';
 
-const BasicInfo = (props) => (
+
+
+const BasicInfo = (props) => {
+
+    const basicInfo = [
+        {
+            label: "실 정보",
+            txtInfo: [{
+                id: "yarnInfo",
+                txtLabel: "실 정보를 입력하세요",
+            }],
+        },
+        {
+            label: "바늘 사이즈",
+            txtInfo: [{
+                id: "needleSize",
+                txtLabel: "바늘 사이즈를 입력하세요",
+                },
+            ],
+        },
+    ];
+    
+    return (
     <React.Fragment>
-         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 5 } }}>
-            <TableForm label="실 정보" textLabel="실 정보를 입력하세요" />
-            <TableForm form label="바늘 사이즈" textLabel="바늘 사이즈를 입력하세요" />
-        </Paper>
+         <InfoTableContainer>
+            <TableForm label={basicInfo[0].label} txtInfo={basicInfo[0].txtInfo} />
+            <TableForm label={basicInfo[1].label} txtInfo={basicInfo[1].txtInfo} />
+        </InfoTableContainer>
     </React.Fragment>
-);
+    );
+}
 
 
 export default BasicInfo;

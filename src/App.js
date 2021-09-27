@@ -10,8 +10,9 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-// import TableForm from './Components/TableForm';
 import BasicInfo from './Containers/BasicInfo';
+import SwatchTable from './Containers/SwatchTable';
+import SexInfo from './Containers/SexInfo';
 
 const theme = createTheme();
 
@@ -36,6 +37,8 @@ function App() {
       </AppBar>
       <Container component="main" maxWidth="md" sx={{ mb: 2 }} >
           <BasicInfo />
+          <SwatchTable />
+          <SexInfo />
       </Container>
     </ThemeProvider>
   );
