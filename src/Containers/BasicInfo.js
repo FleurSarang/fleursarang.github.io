@@ -12,6 +12,7 @@ const BasicInfo = (props) => {
             txtInfo: [{
                 id: "yarnInfo",
                 txtLabel: "실 정보를 입력하세요",
+                required: false,
             }],
         },
         {
@@ -19,6 +20,7 @@ const BasicInfo = (props) => {
             txtInfo: [{
                 id: "needleSize",
                 txtLabel: "바늘 사이즈를 입력하세요",
+                required: false,
                 },
             ],
         },
