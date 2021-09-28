@@ -10,16 +10,19 @@ const TableForm = (props) => {
     
     return (
         <React.Fragment>
-            <Grid container flexdirection="column" justify="center" justifyContent="center" alignItems="ceneter" spacing={2}>
-                <Grid item xs={2} sm={2} lg={2}>
+            <Grid container 
+                 spacing={1} padding={0} 
+                 flexdirection="row" justify="center" justifyContent="center" 
+                 alignItems="ceneter">
+                
+                <Grid item xs={3} sm={3} lg={3}>
                     <Typography color="primary" align="center" 
-                        sx={{ mt: 2.3, fontSize: "1.1em", fontWeight: 500}} >
+                        sx={{ mt: 2.3, fontSize: "1em", fontWeight: 500}} >
                         {label}
                     </Typography>
                 </Grid>
 
                 {txtInfo.map((info, idx) => (
-                    // <React.Fragment>
                     <Grid item key={idx} xs={colSize} sm={colSize}>
                         <TextField
                             required={info.required}
@@ -32,7 +35,6 @@ const TableForm = (props) => {
                             onChange={info.onChange}
                         />
                     </Grid>
-                    // </React.Fragment>
                     )
                 )}
             </Grid>

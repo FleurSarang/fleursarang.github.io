@@ -91,12 +91,12 @@ const SwatchTable = (props) => {
                 {
                     id: "resSts",
                     label: `${contractionSts} %`,
-                    onChange: setContractionSts,
+                    onChange: null,
                 },
                 {
                     id: "resRows",
                     label: `${contractionRows} %`,
-                    onChange: setContractionRows,
+                    onChange: null,
                 }
             ],
         },
@@ -127,9 +127,11 @@ const SwatchTable = (props) => {
                     </Grid>
                 </Grid>
 
-
-                <TableForm label={swatchInfo[0].label} txtInfo={swatchInfo[0].txtInfo} />
-                <TableForm label={swatchInfo[1].label} txtInfo={swatchInfo[1].txtInfo} />
+                {
+                    swatchInfo.map((info, idx) => (
+                        <TableForm key={idx} label={info.label} txtInfo={info.txtInfo} />
+                    ))
+                 }
                 <ResultForm label={results[0].label} results={results[0].results} />
             </InfoTableContainer>
         </React.Fragment>
