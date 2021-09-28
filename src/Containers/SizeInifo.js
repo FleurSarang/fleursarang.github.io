@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import TableForm from '../Components/TableForm';
 import InfoTableContainer from './InfoTableContainer';
 import ResultForm from '../Components/ResultForm';
+import { appContext } from './AppMain';
 
 const SizeInfo = (props) => {
     const [neckBack, setNeckBack] = useState(0);
@@ -9,12 +10,18 @@ const SizeInfo = (props) => {
     const [sleeves, setSleeves] = useState(0); // 소매 나눔 수
     const [totalSts, setTotalSts] = useState(0); // 총 콧 수
     const [sleevesSts, setSleevesSts] = useState(0); // 소매 코수
+    let context = useContext(appContext);
 
     useEffect(() => {
+        let afterSts = context.afterSts;
         // 총 콧수 = 세탁후 코수 * (뒷목 둘레 /10)
-        if(neckBack > 0)
-            setTotalSts(16 * (neckBack / 10));
-    }, [neckBack]);
+        if(neckBack > 0){
+            let totalSts = afterSts * (neckBack / 10);
+            setTotalSts(totalSts);
+            context.setTotalSts(totalSts);
+        }
+            
+    }, [neckBack, context]);
 
     useEffect(() => {
         // 소매 콧수 = 총 콧수 / 소매 나눔 수
@@ -24,8 +31,9 @@ const SizeInfo = (props) => {
     }, [totalSts, sleeves]);
 
 
-    const hadleChangencNeckBack = e => {
+    const handleChangeNeckBack = e => {
         setNeckBack(e.target.value);
+        context.setNeckBack(e.target.value);
     }
 
     const handleChangeReglanSt = e => {
@@ -42,9 +50,9 @@ const SizeInfo = (props) => {
             txtInfo: [
                 {
                     id: "neckBack",
-                    txtLabel: "뒷목 둘레를 입력하세요",
+                    txtLabel: "뒷목 둘레를 입력하세요(cm)",
                     required: true,
-                    onChange: hadleChangencNeckBack,
+                    onChange: handleChangeNeckBack,
                 }
             ],
         },
@@ -54,7 +62,7 @@ const SizeInfo = (props) => {
             txtInfo: [
                 {
                     id: "reglanSt",
-                    txtLabel: "레글런코 를 밉력하세요",
+                    txtLabel: "레글런코를 입력하세요",
                     required: true,
                     onChange: handleChangeReglanSt,
                     
@@ -81,7 +89,7 @@ const SizeInfo = (props) => {
             results: [
                 {
                     id: "totalSt",
-                    label: `${totalSts} 코`,
+                    txtLabel: `${totalSts} 코`,
                     onChange: null,
                 }
             ]
@@ -91,7 +99,7 @@ const SizeInfo = (props) => {
             results: [
                 {
                     id: "sleevesSts",
-                    label: `${sleevesSts} 코`,
+                    txtLabel: `${sleevesSts} 코`,
                     onChange: null,
                 }
             ]

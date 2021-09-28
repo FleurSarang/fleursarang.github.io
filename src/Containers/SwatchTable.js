@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TableForm from '../Components/TableForm';
 import InfoTableContainer from './InfoTableContainer';
 import ResultForm from '../Components/ResultForm';
+import { appContext } from './AppMain';
 
 
 const SwatchTable = (props) => {
+    let context = useContext(appContext);
     const [beforeSts, setBeforeSts] = useState(0);
     const [beforeRows, setBeforeRows] = useState(0);
     const [afterSts, setAfterSts] = useState(0);
@@ -26,7 +28,6 @@ const SwatchTable = (props) => {
 
     const [contractionSts, setContractionSts] = useState(0);
     const [contractionRows, setContractionRows] = useState(0);
-
     
 
     const handleChangeBeforeStitches = e => {
@@ -38,6 +39,7 @@ const SwatchTable = (props) => {
     }
     const handleChangeAfterStitches = e => {
         setAfterSts(e.target.value);
+        context.setAfterSts(e.target.value);
     }
 
     const handleChangeAfterRows = e => {
@@ -90,12 +92,12 @@ const SwatchTable = (props) => {
             results: [
                 {
                     id: "resSts",
-                    label: `${contractionSts} %`,
+                    txtLabel: `${contractionSts} %`,
                     onChange: null,
                 },
                 {
                     id: "resRows",
-                    label: `${contractionRows} %`,
+                    txtLabel: `${contractionRows} %`,
                     onChange: null,
                 }
             ],

@@ -32,6 +32,7 @@ const TableForm = (props) => {
                             fullWidth
                             autoComplete="no info"
                             variant="standard"
+                            // onChange={(e) => { console.log("event:", e);}}
                             onChange={info.onChange}
                         />
                     </Grid>

@@ -28,7 +28,7 @@ const ResultForm = (props) => {
                             color="info"
                             id={info.id}
                             name={info.id}
-                            label={info.label ? info.label : ""}
+                            label={info.txtLabel ? info.txtLabel : ""}
                             variant="standard"
                             onChange={info.onChange ? info.onChange : null}
                             fullWidth
