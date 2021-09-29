@@ -34,6 +34,7 @@ const ResultForm = (props) => {
                             onChange={info.onChange ? info.onChange : null}
                             fullWidth
                             type={info.type}
+                            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                             InputProps = { { endAdornment: <InputAdornment position="end">{info.endAdornment}</InputAdornment> } }
                         />
                     </Grid>

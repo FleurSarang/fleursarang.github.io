@@ -101,13 +101,14 @@ const Header = () => (
   const Footer = () => {
       return (
         <React.Fragment>
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', pt: '60px' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', pt: '100px' }}>
             <AppBar position="fixed" 
                 color="default"
                 elevation={4}
                 sx={{ 
                     top: 'auto', 
                     bottom: 0,
+                    pb: '30px',
                     borderTop: (t) => `1px solid ${t.palette.divider}`,
                 }}>
                 <Toolbar>

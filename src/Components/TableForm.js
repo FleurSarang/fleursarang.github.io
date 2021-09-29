@@ -37,6 +37,7 @@ const TableForm = (props) => {
                             variant={variant}
                             onChange={info.onChange}
                             type={info.type}
+                            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                             InputProps = { { endAdornment: <InputAdornment position="end">{info.endAdornment}</InputAdornment> } }
                         />
                     </Grid>

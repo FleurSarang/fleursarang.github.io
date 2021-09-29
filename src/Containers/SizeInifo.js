@@ -52,6 +52,7 @@ const SizeInfo = (props) => {
                 {
                     id: "neckBack",
                     txtLabel: "뒷목 둘레를 입력하세요",
+                    type: "number",
                     required: true,
                     onChange: handleChangeNeckBack,
                     endAdornment: "cm",
@@ -65,6 +66,7 @@ const SizeInfo = (props) => {
                 {
                     id: "reglanSt",
                     txtLabel: "레글런코를 입력하세요",
+                    type: "number",
                     required: true,
                     onChange: handleChangeReglanSt,
                     endAdornment: "코",
