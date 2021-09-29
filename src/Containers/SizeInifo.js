@@ -25,8 +25,9 @@ const SizeInfo = (props) => {
 
     useEffect(() => {
         // 소매 콧수 = 총 콧수 / 소매 나눔 수
-        if(totalSts > 0 && sleeves > 0)
-            setSleevesSts(totalSts / sleeves);
+        if(totalSts > 0 && sleeves > 0){
+            setSleevesSts((totalSts / sleeves).toFixed(2));
+        }
 
     }, [totalSts, sleeves]);
 
