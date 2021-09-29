@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import { InputAdornment } from '@mui/material';
 
 const TableForm = (props) => {
-    const { label = "none", txtInfo=[], type } = props;
+    const { label = "none", txtInfo=[] } = props;
     let feildLen = txtInfo.length;
     const colSize = feildLen > 1 ? (8 / feildLen) : 8;
     
