@@ -16,14 +16,19 @@ const SwatchTable = (props) => {
 
     useEffect(() => {
         // 수축률 = 세탁 전 / 세탁 후 * 100
-        if (beforeSts > 0 && afterSts > 0)
-            setContractionSts((beforeSts / afterSts) * 100);
+        if (beforeSts > 0 && afterSts > 0) {
+            let res = (beforeSts / afterSts) * 100;
+            setContractionSts(res.toFixed(2));
+        }
     }, [beforeSts, afterSts]);
 
     useEffect(() => {
         // 수축률 = 세탁 전 / 세탁 후 * 100
-        if(beforeRows > 0 && afterRows > 0)
-        setContractionRows((beforeRows / afterRows) * 100);
+        if(beforeRows > 0 && afterRows > 0) {
+            let res = (beforeRows / afterRows) * 100;
+            setContractionRows(res.toFixed(2));
+        }
+
     }, [beforeRows, afterRows]);
 
     const [contractionSts, setContractionSts] = useState(0);
@@ -52,16 +57,17 @@ const SwatchTable = (props) => {
             txtInfo: [
                 {
                     id: "beforeSts",
-                    txtLabel: "코",
+                    txtLabel: "(숫자만)",
                     required: true,
                     onChange: handleChangeBeforeStitches,
+                    endAdornment: "코",
                 },
                 {
                     id: "beforeRows",
-                    txtLabel: "단",
+                    txtLabel: "(숫자만)",
                     required: true,
                     onChange: handleChangeBeforeRows,
-                    
+                    endAdornment: "단",
                 }
             ],
         },
@@ -71,15 +77,17 @@ const SwatchTable = (props) => {
             txtInfo: [
                 {
                     id: "afterSts",
-                    txtLabel: "코",
+                    txtLabel: "(숫자만)",
                     required: true,
                     onChange: handleChangeAfterStitches,
+                    endAdornment: "코",
                 },
                 {
                     id: "afterRows",
-                    txtLabel: "단",
+                    txtLabel: "(숫자만)",
                     required: true,
                     onChange: handleChangeAfterRows,
+                    endAdornment: "단",
                 }
             ],
         },
@@ -104,6 +112,8 @@ const SwatchTable = (props) => {
         },
     ];
 
+
+    // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
 
     return (
         <React.Fragment>
@@ -131,7 +141,7 @@ const SwatchTable = (props) => {
 
                 {
                     swatchInfo.map((info, idx) => (
-                        <TableForm key={idx} label={info.label} txtInfo={info.txtInfo} />
+                        <TableForm key={idx} type="number" label={info.label} txtInfo={info.txtInfo} />
                     ))
                  }
                 <ResultForm label={results[0].label} results={results[0].results} />

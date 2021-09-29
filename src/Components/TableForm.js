@@ -2,9 +2,10 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import { InputAdornment } from '@mui/material';
 
 const TableForm = (props) => {
-    const { label = "none", txtInfo=[] } = props;
+    const { label = "none", txtInfo=[], type } = props;
     let feildLen = txtInfo.length;
     const colSize = feildLen > 1 ? (8 / feildLen) : 8;
     
@@ -34,6 +35,8 @@ const TableForm = (props) => {
                             variant="standard"
                             // onChange={(e) => { console.log("event:", e);}}
                             onChange={info.onChange}
+                            type={type}
+                            InputProps = { { endAdornment: <InputAdornment position="end">{info.endAdornment}</InputAdornment> } }
                         />
                     </Grid>
                     )
