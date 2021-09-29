@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
@@ -123,6 +123,10 @@ const Header = () => (
 
 
 const AppMain = (props) => {
+    useEffect(() => {
+        document.title = "Fleur Sarang Crochet"
+     }, []);
+
     return (
     <Box sx={{ flexGrow: 1, width: "100vw" }}>
         <AppProvider>
