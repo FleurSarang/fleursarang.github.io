@@ -23,7 +23,8 @@ const TableForm = (props) => {
                     </Typography>
                 </Grid>
 
-                {txtInfo.map((info, idx) => (
+                {txtInfo.map((info, idx) => {
+                    return  (
                     <Grid item key={idx} xs={colSize} sm={colSize}>
                         <TextField
                             required={info.required}
@@ -35,11 +36,12 @@ const TableForm = (props) => {
                             variant="standard"
                             // onChange={(e) => { console.log("event:", e);}}
                             onChange={info.onChange}
-                            type={type}
+                            type={info.type}
                             InputProps = { { endAdornment: <InputAdornment position="end">{info.endAdornment}</InputAdornment> } }
                         />
                     </Grid>
-                    )
+                    )}
+                    
                 )}
             </Grid>
         </React.Fragment>

@@ -58,6 +58,7 @@ const SwatchTable = (props) => {
                 {
                     id: "beforeSts",
                     txtLabel: "(숫자만)",
+                    type: "number",
                     required: true,
                     onChange: handleChangeBeforeStitches,
                     endAdornment: "코",
@@ -65,6 +66,7 @@ const SwatchTable = (props) => {
                 {
                     id: "beforeRows",
                     txtLabel: "(숫자만)",
+                    type: "number",
                     required: true,
                     onChange: handleChangeBeforeRows,
                     endAdornment: "단",
@@ -78,6 +80,7 @@ const SwatchTable = (props) => {
                 {
                     id: "afterSts",
                     txtLabel: "(숫자만)",
+                    type: "number",
                     required: true,
                     onChange: handleChangeAfterStitches,
                     endAdornment: "코",
@@ -85,6 +88,7 @@ const SwatchTable = (props) => {
                 {
                     id: "afterRows",
                     txtLabel: "(숫자만)",
+                    type: "number",
                     required: true,
                     onChange: handleChangeAfterRows,
                     endAdornment: "단",
@@ -141,7 +145,7 @@ const SwatchTable = (props) => {
 
                 {
                     swatchInfo.map((info, idx) => (
-                        <TableForm key={idx} type="number" label={info.label} txtInfo={info.txtInfo} />
+                        <TableForm key={idx} label={info.label} txtInfo={info.txtInfo} />
                     ))
                  }
                 <ResultForm label={results[0].label} results={results[0].results} />

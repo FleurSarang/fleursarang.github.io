@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import { InputAdornment } from '@mui/material';
 
 const ResultForm = (props) => {
     const { label = "none", results=[]} = props;
@@ -32,6 +33,8 @@ const ResultForm = (props) => {
                             variant="standard"
                             onChange={info.onChange ? info.onChange : null}
                             fullWidth
+                            type={info.type}
+                            InputProps = { { endAdornment: <InputAdornment position="end">{info.endAdornment}</InputAdornment> } }
                         />
                     </Grid>
                     );

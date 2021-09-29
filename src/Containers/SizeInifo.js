@@ -50,9 +50,10 @@ const SizeInfo = (props) => {
             txtInfo: [
                 {
                     id: "neckBack",
-                    txtLabel: "뒷목 둘레를 입력하세요(cm)",
+                    txtLabel: "뒷목 둘레를 입력하세요",
                     required: true,
                     onChange: handleChangeNeckBack,
+                    endAdornment: "cm",
                 }
             ],
         },
@@ -65,7 +66,7 @@ const SizeInfo = (props) => {
                     txtLabel: "레글런코를 입력하세요",
                     required: true,
                     onChange: handleChangeReglanSt,
-                    
+                    endAdornment: "코",
                 },
             ],
         },
@@ -75,6 +76,7 @@ const SizeInfo = (props) => {
                 {
                     id: "sleeves",
                     txtLabel: "소매 나눔 수를 입력하세요",
+                    type: "number",
                     required: true,
                     onChange: handleChangeSleeves,
                     
@@ -89,8 +91,9 @@ const SizeInfo = (props) => {
             results: [
                 {
                     id: "totalSt",
-                    txtLabel: `${totalSts} 코`,
+                    txtLabel: totalSts,
                     onChange: null,
+                    endAdornment: "코",
                 }
             ]
         },
@@ -99,8 +102,9 @@ const SizeInfo = (props) => {
             results: [
                 {
                     id: "sleevesSts",
-                    txtLabel: `${sleevesSts} 코`,
+                    txtLabel: sleevesSts,
                     onChange: null,
+                    endAdornment: "코",
                 }
             ]
         },

@@ -50,7 +50,7 @@ const MyLink = (props) => {
 const Copyright = () => {
     return (
     <React.Fragment>
-    <Grid container spacing={1} alignItems="center"
+    <Grid container flexdirection="column" justify="center" justifyContent="center" spacing={1} alignItems="center"
         sx={{ flexGrow: 1 }}
     >
         <Grid item sm={12}>
