@@ -2,6 +2,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 
+import { BRAND_YOUTUBE, BRAND_INSTAGRAM, BRAND_RAVELRY, BRAND_ETSY } from '../utils/constants';
+
 // Create a Title component that'll render an <h1> tag with some styles
 export const Title = styled(Typography)(
   ({ color, size, align }) => `
@@ -20,3 +22,30 @@ export const Wrapper = styled(Box)(
 `,
 );
 
+
+const linkStyle = {
+  fontSize: '1.5em',
+  padding: 5,
+};
+
+const getBrandColor = brand => {
+  if (brand === BRAND_YOUTUBE) return "#E62117";
+  else if(brand === BRAND_INSTAGRAM) return "#8a49a1";
+  else if(brand === BRAND_RAVELRY) return "#eb6357";
+  else if(brand === BRAND_ETSY) return "#eb6d20";
+}
+
+export const generateBrandStyles = (brand) => {
+  let brandColor = getBrandColor(brand);
+    return (
+        {
+          link: {
+          ...linkStyle,
+          '&:hover': {
+              fontSize: '2em',
+              color: brandColor,
+          },
+        }
+      }
+    );
+}
