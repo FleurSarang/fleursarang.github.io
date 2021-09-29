@@ -94,6 +94,7 @@ const SizeInfo = (props) => {
                     txtLabel: totalSts,
                     onChange: null,
                     endAdornment: "코",
+                    variant: "filled",
                 }
             ]
         },
@@ -105,6 +106,7 @@ const SizeInfo = (props) => {
                     txtLabel: sleevesSts,
                     onChange: null,
                     endAdornment: "코",
+                    variant: "filled",
                 }
             ]
         },

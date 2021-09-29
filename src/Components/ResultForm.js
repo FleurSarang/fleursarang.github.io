@@ -20,7 +20,7 @@ const ResultForm = (props) => {
                 </Grid>
 
                 {results.map((info, idx) => {
-                    // console.log("ResultForm::info: ", info);
+                    let variant = info.variant ? info.variant : "standard";
                     
                     return(
                     <Grid item key={idx} xs={colSize} sm={colSize}>
@@ -30,7 +30,7 @@ const ResultForm = (props) => {
                             id={info.id}
                             name={info.id}
                             label={info.txtLabel ? info.txtLabel : ""}
-                            variant="standard"
+                            variant={variant}
                             onChange={info.onChange ? info.onChange : null}
                             fullWidth
                             type={info.type}

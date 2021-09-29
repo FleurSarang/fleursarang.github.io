@@ -106,18 +106,17 @@ const SwatchTable = (props) => {
                     id: "resSts",
                     txtLabel: `${contractionSts} %`,
                     onChange: null,
+                    variant: "filled",
                 },
                 {
                     id: "resRows",
                     txtLabel: `${contractionRows} %`,
                     onChange: null,
+                    variant: "filled",
                 }
             ],
         },
     ];
-
-
-    // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
 
     return (
         <React.Fragment>

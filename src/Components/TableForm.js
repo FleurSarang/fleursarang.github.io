@@ -24,6 +24,7 @@ const TableForm = (props) => {
                 </Grid>
 
                 {txtInfo.map((info, idx) => {
+                    let variant = info.variant ? info.variant : "standard";
                     return  (
                     <Grid item key={idx} xs={colSize} sm={colSize}>
                         <TextField
@@ -33,8 +34,7 @@ const TableForm = (props) => {
                             label={info.txtLabel}
                             fullWidth
                             autoComplete="no info"
-                            variant="standard"
-                            // onChange={(e) => { console.log("event:", e);}}
+                            variant={variant}
                             onChange={info.onChange}
                             type={info.type}
                             InputProps = { { endAdornment: <InputAdornment position="end">{info.endAdornment}</InputAdornment> } }
